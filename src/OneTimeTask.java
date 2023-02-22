@@ -11,6 +11,6 @@ public class OneTimeTask extends TaskMaster{
 
     @Override
     public String toString() {
-        return "Ежедневная задача: " + super.toString();
+        return "Однодневная задача: " + super.toString();
     }
 }

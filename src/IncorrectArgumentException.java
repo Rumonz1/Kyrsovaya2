@@ -10,6 +10,6 @@ public class IncorrectArgumentException extends Exception{
     @Override
     public String toString()
     {
-        return "Неправильно введён параметр: "+super.getMessage() +" "+ argument;
+        return "Неправильно введён параметр: "+super.getMessage() + argument;
     }
 }

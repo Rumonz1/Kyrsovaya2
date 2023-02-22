@@ -11,8 +11,18 @@ public abstract class TaskMaster {
     private String description;
 
     public TaskMaster(String title, Type type, LocalDateTime dateTime, String description) throws IncorrectArgumentException{
-        setTitle(title);
-        setDescription(description);
+        if (title == null || title.isEmpty() || title.isBlank()) {
+            throw new IncorrectArgumentException("Значение заголовка некорректно");
+        } else {
+            this.title = title;
+        }
+        if (description == null || description.isEmpty() || description.isBlank()) {
+            throw new IncorrectArgumentException("Значение описания некорректно");
+        } else {
+            this.description = description;
+        }
+//        setTitle(title);
+//        setDescription(description);
         this.type = type;
         this.dateTime = dateTime;
         this.id = idGenerator++;
@@ -39,21 +49,21 @@ public abstract class TaskMaster {
         return description;
     }
 
-    public void setTitle(String title) throws IncorrectArgumentException {
-        if (title == null || title.isEmpty() || title.isBlank()) {
-            throw new IncorrectArgumentException("Значение заголовка некорректно");
-        } else {
-            this.title = title;
-        }
-    }
+//    public void setTitle(String title) throws IncorrectArgumentException {
+//        if (title == null || title.isEmpty() || title.isBlank()) {
+//            throw new IncorrectArgumentException("Значение заголовка некорректно");
+//        } else {
+//            this.title = title;
+//        }
+//    }
 
-    public void setDescription(String description) throws IncorrectArgumentException {
-        if (description == null || description.isEmpty() || description.isBlank()) {
-            throw new IncorrectArgumentException("Значение описания некорректно");
-        } else {
-            this.description = description;
-        }
-    }
+//    public void setDescription(String description) throws IncorrectArgumentException {
+//        if (description == null || description.isEmpty() || description.isBlank()) {
+//            throw new IncorrectArgumentException("Значение описания некорректно");
+//        } else {
+//            this.description = description;
+//        }
+//    }
 
     public abstract boolean appearsln(LocalDate dateForChecking);
 
